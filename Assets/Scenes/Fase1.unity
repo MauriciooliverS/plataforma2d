@@ -417,7 +417,9 @@ MonoBehaviour:
   moveSpeed: 10.15
   jumpForce: 0
   onGround: 0
-  groundCheck: []
+  groundCheck:
+  - {fileID: 907705029}
+  - {fileID: 925580478}
   playerAnim: {fileID: 0}
   groundMask:
     serializedVersion: 2
