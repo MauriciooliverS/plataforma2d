@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     {
         Move();
         InputSistem();
+        checkGround();
     }
 
 private void Move()
@@ -63,5 +64,12 @@ private void InputSistem()
 private void Jump()
 {
     rb2d.linearVelocity = new UnityEngine.Vector2 (rb2d.linearVelocity.x,jumpForce);
+}
+
+private void Animations()
+{
+    playerAnim.SetFloat("SpeedX", Mathf.Abs(moveInput));
+    playerAnim.SetFloat("SpeedY", rb2d.linearVelocity.y);
+    playerAnim.SetBool("onGround", onGround);
 }
 }
