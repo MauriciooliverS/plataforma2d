@@ -9,6 +9,10 @@ TagManager:
   - Chaotroll
   - Chaoinvisivel
   - Cherry
+  - Placa2
+  - Placa3
+  - Troll2
+  - Troll2Aparece
   layers:
   - Default
   - TransparentFX
