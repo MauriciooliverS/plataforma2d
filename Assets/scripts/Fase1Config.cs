@@ -12,7 +12,10 @@ public class Fase1Config : MonoBehaviour
     [SerializeField] private GameObject morte2;
     [SerializeField] private GameObject morte3;
     [SerializeField] private GameObject mortetroll;
+    
     [SerializeField] private GameObject chaoInvisivel;
+    [SerializeField] private GameObject portaCresce;
+    public Animator portaAnim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +31,7 @@ public class Fase1Config : MonoBehaviour
         morte.SetActive(true);
         morte2.SetActive(true);
         morte3.SetActive(true);
+        portaCresce.SetActive(false);
     }
 
     // Update is called once per frame
@@ -80,8 +84,12 @@ public class Fase1Config : MonoBehaviour
             dialogoPlaca3.SetActive(false);
             aperteTeclaE.SetActive(false);
         }
+        if(other.gameObject.CompareTag("Porta"))
+        {
+            aperteTeclaE.SetActive(false);
+        }
         
-}
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Chaotroll"))
@@ -112,6 +120,18 @@ public class Fase1Config : MonoBehaviour
         {
             troll2.SetActive(true);
         }
-
+        if(other.tag == "Porta" /*&& cherry (Arrumar um jeito de colocar as cerejas como obrigação) */ )
+        {
+            aperteTeclaE.SetActive(true);
+            if(Input.GetKey(KeyCode.E))
+            {
+                portaCresce.SetActive(true);
+                Animations();
+            }
+        }
+    }
+    private void Animations()
+    {
+        portaAnim.SetBool("portaCresce", portaCresce);
     }
 }

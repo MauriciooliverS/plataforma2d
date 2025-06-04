@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
         Move();
         InputSistem();
         checkGround();
+        Animations();
     }
 
 private void Move()

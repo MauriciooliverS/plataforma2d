@@ -13,6 +13,7 @@ TagManager:
   - Placa3
   - Troll2
   - Troll2Aparece
+  - Porta
   layers:
   - Default
   - TransparentFX
