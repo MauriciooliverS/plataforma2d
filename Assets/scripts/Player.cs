@@ -55,9 +55,13 @@ private void InputSistem()
     moveInput = Input.GetAxisRaw("Horizontal");
     if (moveInput != 0f)
     {
-        transform.localScale = new UnityEngine.Vector3(moveInput,  1f, 1f);
+        transform.localScale = new UnityEngine.Vector2(moveInput,  1f);
     }
     if(Input.GetKeyDown(KeyCode.Space) && onGround)
+    {
+        Jump();
+    }
+    if(Input.GetButton("Square") && onGround)
     {
         Jump();
     }

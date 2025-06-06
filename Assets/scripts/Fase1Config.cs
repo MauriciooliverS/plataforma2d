@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Fase1Config : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class Fase1Config : MonoBehaviour
         if(other.tag == "Placa")
         {
             aperteTeclaE.SetActive(true);
-            if(Input.GetKey(KeyCode.E))
+            if(Input.GetKey(KeyCode.E)|| Input.GetKeyDown(KeyCode.JoystickButton4))
             {
                 dialogoPlaca.SetActive(true);
             }
@@ -52,7 +53,7 @@ public class Fase1Config : MonoBehaviour
             if(other.tag == "Placa2")
         {
             aperteTeclaE.SetActive(true);
-            if(Input.GetKey(KeyCode.E))
+            if(Input.GetKey(KeyCode.E)|| Input.GetKeyDown(KeyCode.JoystickButton4))
             {
                 dialogoPlaca2.SetActive(true);
             }
@@ -60,9 +61,19 @@ public class Fase1Config : MonoBehaviour
         if(other.tag == "Placa3")
         {
             aperteTeclaE.SetActive(true);
-            if(Input.GetKey(KeyCode.E))
+            if(Input.GetKey(KeyCode.E)|| Input.GetKeyDown(KeyCode.JoystickButton4))
             {
                 dialogoPlaca3.SetActive(true);
+            }
+        }
+        if(other.tag == "Porta" /*&& cherry (Arrumar um jeito de colocar as cerejas como obrigação) */ )
+        {
+            aperteTeclaE.SetActive(true);
+            if(Input.GetKeyDown(KeyCode.E)|| Input.GetKeyDown(KeyCode.JoystickButton4))
+            {
+                portaCresce.SetActive(true);
+                Animations();
+                SceneManager.LoadScene("Casa");
             }
         }
         
@@ -123,15 +134,17 @@ public class Fase1Config : MonoBehaviour
         if(other.tag == "Porta" /*&& cherry (Arrumar um jeito de colocar as cerejas como obrigação) */ )
         {
             aperteTeclaE.SetActive(true);
-            if(Input.GetKey(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E)|| Input.GetKeyDown(KeyCode.JoystickButton4))
             {
                 portaCresce.SetActive(true);
                 Animations();
+                SceneManager.LoadScene("Casa");
             }
         }
     }
     private void Animations()
     {
         portaAnim.SetBool("portaCresce", portaCresce);
+        
     }
 }
